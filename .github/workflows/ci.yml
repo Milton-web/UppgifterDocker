@@ -1,3 +1,11 @@
+name: Build and Docker Push
+
+on:
+  push:
+    branches:
+    - main
+    - V36-Uppgift-3-4
+
 jobs: 
   build:
     runs-on: ubuntu-latest
