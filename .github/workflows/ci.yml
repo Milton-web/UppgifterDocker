@@ -1,2 +1,24 @@
- - name: build Docker image
-   run: docker build -t devmilton/min-app:runtime -f Dockerfile .
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v3
+
+      # Bygg/test service1
+      - name: Build Service 1
+        run: |
+          docker build -t devmilton/service1:runtime ./service1
+          docker run --rm devmilton/service1:runtime npm test
+
+      # Bygg/test service2
+      - name: build Service 2
+        run: |
+          docker build -t devmilton/service2:runtime ./service2
+          docker run --rm devmilton/service2:runtime npm test
+      
+      # Pushar bara runtime till docker
+      - name: Push service 1
+        run: docker push devmilton/service1:runtime
+
+      - name: Push service 2
+        run: docker push devmilton/service2:runtime
