@@ -1,0 +1,2 @@
+ - name: build Docker image
+   run: docker build -t devmilton/min-app:runtime -f Dockerfile .
