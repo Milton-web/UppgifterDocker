@@ -14,6 +14,8 @@ RUN npm install
 # Kopiera resten av applikationen
 COPY . . 
 
+RUN npm test
+
 # ------------------------ RUNTIME ---------------
 
 FROM node:20-alpine AS runtime
