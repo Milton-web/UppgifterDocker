@@ -5,11 +5,18 @@ on:
     branches:
       - main
       - V36-Uppgift-3-4
+      - Log-Stream
 
 jobs:
   build-service1:
     name: Build and Push Service 1
     runs-on: ubuntu-latest
+
+    # behörigheter för att köra CodeQL och pusha till gh-pages
+    permissions: 
+      contents: write # Behövs för att pusha till gh-pages
+      security-events: write # Behövs för CodeQL
+
     steps:
       - uses: actions/checkout@v3
 
@@ -30,6 +37,12 @@ jobs:
   build-service2:
     name: Build and Push Service 2
     runs-on: ubuntu-latest
+
+      # behörigheter för att köra CodeQL och pusha till gh-pages
+    permissions: 
+      contents: write # Behövs för att pusha till gh-pages
+      security-events: write # Behövs för CodeQL
+
     steps:
       - uses: actions/checkout@v3
 
