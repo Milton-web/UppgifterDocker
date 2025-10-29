@@ -14,7 +14,8 @@ RUN npm install
 # Kopiera resten av applikationen
 COPY . . 
 
-RUN npm test
+# Jest körs i CI-miljö och kör testerna sekventiellt. (Lagt till efter fel permission denied) 
+RUN npx jest --ci --runInBand
 
 # ------------------------ RUNTIME ---------------
 
