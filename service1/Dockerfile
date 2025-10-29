@@ -15,7 +15,8 @@ RUN npm install
 COPY . . 
 
 # Jest körs i CI-miljö och kör testerna sekventiellt. (Lagt till efter fel permission denied) 
-RUN npx jest --ci --runInBand
+RUN chmod +x ./node_modules/.bin/jest && npx jest --ci --runInBand
+
 
 # ------------------------ RUNTIME ---------------
 
