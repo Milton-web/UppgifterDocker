@@ -15,6 +15,7 @@ RUN npm install
 COPY . . 
 
 # Jest körs i CI-miljö och kör testerna sekventiellt. (Lagt till efter fel permission denied) 
+# chmod +x ./node_modules/.bin/jest Gör Jest-binären körbar manuellt
 RUN chmod +x ./node_modules/.bin/jest && npx jest --ci --runInBand
 
 

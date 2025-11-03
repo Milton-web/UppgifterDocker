@@ -27,9 +27,11 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and Test Service 1
-        run: |
-          docker build -t devmilton/service1:runtime ./service1
-          docker run --rm devmilton/service1:runtime npm test
+        run:  docker build -t devmilton/service1:runtime ./service1
+      
+      # Kör testerna i containern
+      - name: Run test
+        run: docker run --rm devmilton/service1:runtime npm test
 
       - name: Push Service 1
         run: docker push devmilton/service1:runtime
@@ -53,9 +55,10 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and Test Service 2
-        run: |
-          docker build -t devmilton/service2:runtime ./service2
-          docker run --rm devmilton/service2:runtime npm test
+        run: docker build -t devmilton/service2:runtime ./service2
+      
+      - name: Run test
+        run: docker run --rm devmilton/service2:runtime npm test
 
       - name: Push Service 2
         run: docker push devmilton/service2:runtime

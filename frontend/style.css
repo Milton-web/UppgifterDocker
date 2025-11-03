@@ -1,0 +1,11 @@
+body {
+  background: #0b121b;
+  color: #e2e8f0;
+  font-family: sans-serif;
+  text-align: center;
+  padding-top: 50px;
+}
+h1 {
+  color: #3b82f6;
+  cursor: pointer;
+}
