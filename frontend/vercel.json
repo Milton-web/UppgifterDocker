@@ -4,7 +4,7 @@
   "outputDirectory": "dist",
   "framework": "vite",
   "git": {
-    "productionBranch": "vercel"
+    "productionBranch": "main"
   },
   "routes": [
     { "src": "/(.*)", "dest": "/index.html" }
