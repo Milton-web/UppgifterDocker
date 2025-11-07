@@ -1,17 +1,11 @@
 {
   "source": {
-    "include": [
-      "service1",
-      "service2"
-    ],
-    "includePattern": ".js$",
-    "excludePattern": "(node_modules|docs)"
+    "include": ["service1", "service2"],
+    "includePattern": ".+\\.js(doc|x)?$"
   },
   "opts": {
     "destination": "./docs",
-    "recurse": true,
-    "encoding": "utf8",
-    "readme": "./README.md",
-    "template": "default"
+    "template": "node_modules/minami",
+    "recurse": true
   }
 }
