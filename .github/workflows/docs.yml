@@ -18,15 +18,16 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install JSDoc dependencies
-        run: npm install
+      - name: Install dependencies
+        run: npm ci
 
       - name: Generate documentation
-        run: npm run docs
+        run: |
+          chmod +x ./node_modules/.bin/jsdoc
+          npx jsdoc -c jsdoc.config.json
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs
-
