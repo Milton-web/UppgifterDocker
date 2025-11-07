@@ -1,0 +1,10 @@
+{
+  "name": "backend-root",
+  "version": "1.0.0",
+  "scripts": {
+    "docs": "jsdoc -c jsdoc.config.json"
+  },
+  "devDependencies": {
+    "jsdoc": "^4.0.5"
+  }
+}
