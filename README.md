@@ -27,3 +27,9 @@ att underhålla flera olika Dockerfiler.
 
 devmilton/min-app        runtime   e13b80efa7b8   12 minutes ago   212MB
 devmilton/min-app-test   latest    ded4202c2ee7   12 minutes ago   1.6GB
+
+## Dokumentation
+
+Den senaste versionen av dokumentationen genereras automatiskt och finns på GitHub Pages:
+
+[📖 Visa JSDoc-dokumentation](https://Milton-web.github.io/UppgifterDocker/)
