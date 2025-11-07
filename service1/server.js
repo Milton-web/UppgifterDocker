@@ -1,0 +1,16 @@
+const express = require('express');
+const app = express();
+const PORT = 3000;
+
+app.get('/', (req, res) => {
+    res.send('Hello from service 1!')
+});
+
+app.get('/test-error', (req, res) => {
+    console.error('TEST ERROR: Något gick fel');
+    res.status(500).send('Test error triggered');
+});
+
+app.listen(PORT, () => {
+     console.log(`Server running on: http://localhost:${PORT}`);
+});

@@ -1,0 +1,17 @@
+{
+  "source": {
+    "include": [
+      "service1",
+      "service2"
+    ],
+    "includePattern": ".js$",
+    "excludePattern": "(node_modules|docs)"
+  },
+  "opts": {
+    "destination": "./docs",
+    "recurse": true,
+    "encoding": "utf8",
+    "readme": "./README.md",
+    "template": "default"
+  }
+}

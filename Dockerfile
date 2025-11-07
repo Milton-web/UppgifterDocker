@@ -1,18 +1,37 @@
-# 1. Basimage
-FROM node:20
+#------------------------ Builder ---------------------
 
-# 2. Skapa arbetskatalog i containern
+FROM node:20 AS builder
+
+# arbetsmapp
 WORKDIR /app
 
-# 3. installera beroenden
+# kopiera package.json
 COPY package*.json ./
+
+# Installera beroenden
 RUN npm install
 
-# 4. Kopiera resten av applikationen
-COPY . .
+# Kopiera resten av applikationen
+COPY . . 
 
-# 5. Exponera porten
+# ------------------------ RUNTIME ---------------
+
+FROM node:20-alpine AS runtime
+
+# Arbetsmapp
+WORKDIR /app
+
+# Kopiera endast package.json
+COPY package*.json ./
+
+# Installera bara produktionsberoenden
+RUN npm install --only=production
+
+# kopiera från builder
+COPY --from=builder /app .
+
+# Exponera port
 EXPOSE 3000
 
-# 6. starta servern
+# Bash kommando
 CMD ["node", "server.js"]
